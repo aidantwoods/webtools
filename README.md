@@ -4,5 +4,5 @@ Easy conversion of exported semi-colon delimited cookies from Wireshark, to be i
 Most options don't need to be configured, but can be adjusted by obvious variable assignments given.
 By default the domain, and the cookies require setting via input each time program is run. These too can of course be changed as convenient.
 
-file_output is set to false, so JSON will be output in the console. If needed, set this value to true to get a file instead.
+By default, file_output is set to false, so JSON will be output in the console. If needed, set this value to true to get a file instead.
 The output file name is by default, 'cookies.json', but can easily be configured.
