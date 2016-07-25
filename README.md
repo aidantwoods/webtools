@@ -7,6 +7,7 @@ By default, file_output is set to false, so JSON will be output in the console. 
 The output file name is by default, 'cookies.json', but can easily be configured.
 
 Usage: `python3 wire2json.py [options] domain`
+For additional usage information, run `python3 wire2json.py -h`
 
 # jsChar2Code
 Convert plaintext into String.fromCharCode(...) to be used in JavaScript. Run directly and type desired text into prompt, followed by enter, or simply pipe output in e.g: cat script.js | python3 jsChar2Code.py
