@@ -8,8 +8,8 @@ The output file name is by default, 'cookies.json', but can easily be configured
 
 Usage: `python3 wire2json.py [options] domain`
 
-`wire2json.py [-h] [-f] [-c] [-t] [-o] [-s] [-p PATH] [-n OUTPUTNAME]
-                    [-e EXPIRE]
+`python3 wire2json.py [-h] [-f] [-c] [-t] [-o] [-s] [-p PATH] [-n OUTPUTNAME]`
+`                    [-e EXPIRE]`
                     domain
 
 positional arguments:
