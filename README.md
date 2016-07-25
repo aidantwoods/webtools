@@ -8,26 +8,6 @@ The output file name is by default, 'cookies.json', but can easily be configured
 
 Usage: `python3 wire2json.py [options] domain`
 
-`python3 wire2json.py [-h] [-f] [-c] [-t] [-o] [-s] [-p PATH] [-n OUTPUTNAME]`
-`                    [-e EXPIRE]`
-                    domain
-
-positional arguments:
-  domain                Assign Cookies to (eg: '.example.com')
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -f, --fileoutput      Output cookie JSON to file
-  -c, --secure          Set secure flag
-  -t, --httponly        Set httpOnly flag
-  -o, --hostonly        Set hostOnly flag
-  -s, --session         Set session flag
-  -p PATH, --path PATH  Set cookie path
-  -n OUTPUTNAME, --outputname OUTPUTNAME
-                        Set output cookie JSON file name
-  -e EXPIRE, --expire EXPIRE
-                        Seconds after current time to expire cookies`
-
 # jsChar2Code
 Convert plaintext into String.fromCharCode(...) to be used in JavaScript. Run directly and type desired text into prompt, followed by enter, or simply pipe output in e.g: cat script.js | python3 jsChar2Code.py
 
