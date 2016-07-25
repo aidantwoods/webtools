@@ -1,15 +1,36 @@
-import time, re
+import time, re, argparse
 
-file_output = False
-output_name = "cookies.json"
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", "--fileoutput", help="Output cookie JSON to file", action="store_true")
+parser.add_argument("-c", "--secure", help="Set secure flag", action="store_true")
+parser.add_argument("-t", "--httponly", help="Set httpOnly flag", action="store_true")
+parser.add_argument("-o", "--hostonly", help="Set hostOnly flag", action="store_true")
+parser.add_argument("-s", "--session", help="Set session flag", action="store_true")
+parser.add_argument("-p", "--path", help="Set cookie path", default="/")
+parser.add_argument("-n", "--outputname", help="Set output cookie JSON file name", default="cookies.json")
+parser.add_argument("domain", help="Assign Cookies to (eg: '.example.com')")
+parser.add_argument("-e", "--expire", help="Seconds after current time to expire cookies", type=int, default=60*60*24*90)
 
-domain = input("Assign Cookies to (eg: '.example.com'): ")
-expire = str(int(time.time() + 60*60*24*90)) #expire in 90 days
-secure = "false"
-session = "false"
-httpOnly = "true"
-hostOnly = "true"
-path = "/"
+args = parser.parse_args()
+
+file_output = args.fileoutput
+output_name = args.outputname
+
+domain = args.domain
+expire = str(int(time.time() + args.expire))
+
+secure = session = httpOnly = hostOnly = "false"
+
+if args.secure:
+    secure = "true"
+if args.session:
+    session = "true"
+if args.httponly:
+    httpOnly = "true"
+if args.hostonly:
+    hostOnly = "true"
+
+path = args.path
 
 st = input("Cookie Delimited Format: ")
 st = re.sub(r'([^;=]+)(?:=)([^;]*)', r'\1",\n"value": "\2', st)
