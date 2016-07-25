@@ -10,6 +10,21 @@ Usage: `python3 wire2json.py [options] domain`
 For additional usage information, run `python3 wire2json.py -h`
 
 # jsChar2Code
-Convert plaintext into String.fromCharCode(...) to be used in JavaScript. Run directly and type desired text into prompt, followed by enter, or simply pipe output in e.g: cat script.js | python3 jsChar2Code.py
+Convert plaintext into ascii ecnoded integer values, e.g. for String.fromCharCode(...) to be used in JavaScript.
 
-Note: you should minify first – dirt cheaply made script thus far, so first newline from piped text will be interpreted as end of input.
+Usage: `python3 jsChar2Code.py [-f FILE] [-o OUTPUT] [-r] [-n]`
+
+`-f, File to read from`
+
+`-o, If set, output will be supressed from console and written to file name specified`
+
+`-r, Set this option to remove String.fromCharCode(...) text, and just get encoded output`
+
+`-n, Set this option to retain trailing newlines at end of file`
+
+## Examples
+`python3 jsChar2Code.py -f script.js -o encoded.js` will read JavaScript from `script.js`, and output to `encoded.js`, while stripping trailing newlines, and wrapping encoded characters in `String.fromCharCode(...)`.
+
+Note that, if the file `script.js` contains no newlines, the following is equivalent `cat script.js | python3 jsChar2Code.py -o encoded.js`
+
+`python3 jsChar2Code.py -rnf script.js` will read JavaScript from `script.js`, and output to the console, while retaining trailing newlines, but will not wrap encoded characters in `String.fromCharCode(...)`.
